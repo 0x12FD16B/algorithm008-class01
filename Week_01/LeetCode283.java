@@ -1,4 +1,4 @@
-class Solution {
+class LeetCode283 {
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) return;
         int length = nums.length;
