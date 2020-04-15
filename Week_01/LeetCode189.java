@@ -13,7 +13,8 @@ public class LeetCode189 {
         }
     }
 
-    // 解法2: 循环找位法, 让数组中第 i 个元素到第 (i + k) % nums.length 的位置去
+    // 解法2: 循环找位法, 让数组中第 i 个元素到第 (i + k) % nums.length 的位置去, 循环条件比较难找
+    // 通过标记移动了多少个元素来标记退出循环(如果 nums.length 个元素都移动了元素, 则说明数组旋转完成)
     // 时间复杂度 O(n)
     // 空间复杂度 O(1)
     public void rotate_solution2(int[] nums, int k) {
