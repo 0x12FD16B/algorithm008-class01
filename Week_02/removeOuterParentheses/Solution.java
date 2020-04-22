@@ -43,4 +43,17 @@ public class Solution {
         return res.toString();
     }
 
+    // 从国际站看到的超级精炼的一种解法, https://leetcode.com/problems/remove-outermost-parentheses/discuss/270022/JavaC%2B%2BPython-Count-Opened-Parenthesis
+    // 思路和解法二思路一样, 代码特别简练
+    // 特别是循环内的两个逻辑, 特别精彩
+    public String removeOuterParentheses3(String S) {
+        int opened = 0;
+        StringBuilder res = new StringBuilder();
+        for (char c : S.toCharArray()) {
+            if (c == '(' && opened++ > 0) res.append(c);
+            if (c == ')' && opened-- > 1) res.append(c);
+        }
+        return res.toString();
+    }
+
 }
