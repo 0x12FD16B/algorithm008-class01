@@ -1,40 +1,41 @@
-package maximumDepthOfBinaryTree;
+package minimumDepthOfBinaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+ * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree
  *
  * @author David Liu
  */
 public class Solution {
 
-    // 使用递归的解法
-    public int maxDepth(TreeNode root) {
+    public int minDepth(TreeNode root) {
         if (root == null) return 0;
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+        int minLeft = minDepth(root.left);
+        int minRight = minDepth(root.right);
+        return root.left == null || root.right == null ? minLeft + minRight + 1 : Math.min(minLeft, minRight) + 1;
     }
 
-    // 使用队列模拟层序遍历
-    public int maxDepth2(TreeNode root) {
+    public int minDepth2(TreeNode root) {
         if (root == null) return 0;
         Queue<TreeNode> queue = new LinkedList<>();
-        int height = 0;
         queue.offer(root);
+        int level = 1;
         while (!queue.isEmpty()) {
             int cnt = queue.size();
             for (int i = 0; i < cnt; i++) {
                 TreeNode node = queue.poll();
+                if (node.left == null && node.right == null) return level;
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }
-            height++;
+            level++;
         }
-        return height;
+        return level;
     }
 
-    public static class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
