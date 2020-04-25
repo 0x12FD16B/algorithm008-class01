@@ -34,7 +34,7 @@ public class Solution {
         return height;
     }
 
-    public static class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
