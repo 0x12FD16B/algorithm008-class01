@@ -16,8 +16,6 @@
 
 * 在工程中解使用 Hash 表一般使用开发预演中包装好的类库, 比如 Java 语言中的 Map, Set 的实现
 
-// todo HashMap 总结
-
 ### 树
 
 树是特殊的链表, 一个节点有多个指针指向其他节点。
@@ -82,7 +80,7 @@ insert(create): O(logN) or O(1)
 * https://leetcode-cn.com/problems/two-sum
 
 > 树
->
+
 * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 * https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
@@ -95,3 +93,4 @@ insert(create): O(logN) or O(1)
 
 树的面试题解法一般都是递归，为什么？
 
+因为树的问题在子树上具有相似性, 整体问题的求解需要局部重复部分的问题 "归集" 得到问题的解, 一般可以使用递归求解。
