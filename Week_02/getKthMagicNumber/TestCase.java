@@ -1,5 +1,6 @@
 package getKthMagicNumber;
 
+import getKthMagicNumber_week3.Solution;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import org.junit.Test;
  */
 public class TestCase {
 
-    private final Solution solution = new Solution();
+    private final getKthMagicNumber_week3.Solution solution = new Solution();
 
     @Test
     public void case1() {
