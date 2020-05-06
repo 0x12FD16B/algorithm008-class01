@@ -15,7 +15,7 @@ public class TestCase {
     public void case1() {
         int k = 1;
         int expect = 1;
-        int actual = solution.getKthMagicNumber1(k);
+        int actual = solution.getKthMagicNumber(k);
         Assert.assertEquals(actual, expect);
     }
 }
