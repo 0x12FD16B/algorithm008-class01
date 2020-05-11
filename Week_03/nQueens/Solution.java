@@ -12,58 +12,43 @@ public class Solution {
     private Set<Integer> cols;
     private Set<Integer> pie;
     private Set<Integer> na;
-    private List<List<Integer>> result;
 
     public List<List<String>> solveNQueens(int n) {
         if (n < 1) return Collections.emptyList();
         cols = new HashSet<>();
         pie = new HashSet<>();
         na = new HashSet<>();
-        result = new LinkedList<>();
-        List<Integer> rowState = new LinkedList<>();
-        dfs(n, 0, rowState);
-        return generateResult(n);
+        List<List<String>> ans = new LinkedList<>();
+        dfs(ans, new LinkedList<>(), n, 0);
+        return ans;
     }
 
-    private void dfs(int n, int row, List<Integer> rowState) {
+    private void dfs(List<List<String>> res, List<String> rowState, int n, int row) {
         // recursion terminator
-        if (row >= n) {
-            result.add(rowState);
+        if (row == n) {
+            res.add(new LinkedList<>(rowState));
             return;
         }
 
         for (int col = 0; col < n; col++) {
             if (cols.contains(col) || pie.contains(row + col) || na.contains(row - col)) continue;
             // process current level
+            char[] lineState = new char[n];
+            Arrays.fill(lineState, '.');
+            lineState[col] = 'Q';
+            String rowString = new String(lineState);
+            rowState.add(rowString);
             cols.add(col);
             pie.add(row + col);
             na.add(row - col);
             // drill down
-            rowState.add(col);
+            dfs(res, rowState, n, row + 1);
             // reverse state
-            dfs(n, row + 1, rowState);
-            rowState.remove(Integer.valueOf(col));
+            rowState.remove(rowState.size() - 1);
             cols.remove(col);
             pie.remove(row + col);
             na.remove(row - col);
         }
 
-    }
-
-    private List<List<String>> generateResult(int n) {
-        List<List<String>> ans = new LinkedList<>();
-        for (List<Integer> rowState : result) {
-            List<String> t = new LinkedList<>();
-            for (Integer col : rowState) {
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < n; i++) {
-                    if (i == col) builder.append("Q");
-                    else builder.append(".");
-                }
-                t.add(builder.toString());
-            }
-            ans.add(t);
-        }
-        return ans;
     }
 }

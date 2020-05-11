@@ -10,4 +10,9 @@ import org.junit.Test;
 public class TestCase {
 
     private final Solution solution = new Solution();
+
+    @Test
+    public void case1() {
+        System.out.println(solution.solveNQueens(4));
+    }
 }
