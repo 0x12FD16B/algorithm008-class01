@@ -18,7 +18,7 @@ public class TestCase {
                 {10, 11, 16, 20},
                 {23, 30, 34, 50}
         };
-        Assert.assertTrue(solution.searchMatrix(matrix, 3));
+        Assert.assertTrue(solution.searchMatrix2(matrix, 3));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class TestCase {
                 {10, 11, 16, 20},
                 {23, 30, 34, 50}
         };
-        Assert.assertFalse(solution.searchMatrix(matrix, 13));
+        Assert.assertFalse(solution.searchMatrix2(matrix, 13));
     }
 
     @Test
@@ -36,6 +36,6 @@ public class TestCase {
         int[][] matrix = {
                 {1, 3}
         };
-        Assert.assertTrue(solution.searchMatrix(matrix, 3));
+        Assert.assertTrue(solution.searchMatrix2(matrix, 3));
     }
 }
