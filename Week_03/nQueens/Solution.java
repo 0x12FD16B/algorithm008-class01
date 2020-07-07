@@ -26,6 +26,7 @@ public class Solution {
     private void dfs(List<List<String>> res, List<String> rowState, int n, int row) {
         // recursion terminator
         if (row == n) {
+            Map<Integer, Integer> numDict = new TreeMap<>((n1, n2) -> n2 - n1);
             res.add(new LinkedList<>(rowState));
             return;
         }
